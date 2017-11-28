@@ -47,9 +47,6 @@ public class Q6 : MonoBehaviour
         {
             for (int b = 0; b < 6 - 1; b++)
             {
-                if (kakao[a, b] != kakao[a, b + 1]) break;
-                if (kakao[a, b] != kakao[a + 1, b]) break;
-                if (kakao[a, b] != kakao[a + 1, b + 1]) break;
                 if (kakao[a, b] == kakao[a, b + 1] && kakao[a, b] == kakao[a + 1, b] && kakao[a, b] == kakao[a + 1, b + 1])
                 {
                     print("flag" + a + ", " + b + "Checked");
