@@ -59,7 +59,7 @@ public class Grid : MonoBehaviour
         for (int a = 0; a < CELL_COUNT * CELL_COUNT; a++)
         {
 
-                if (Random.Range(0, 10) > 5) walls[a] = true;
+                if (Random.Range(0, 10) > 7) walls[a] = true;
             
         }
         WallGenerate(walls);
@@ -148,20 +148,64 @@ public class Grid : MonoBehaviour
         isChecked[curLocation] = true;
         isVisited[curLocation] = true;
 
-        if(BFSSearch(dest) == null)StartCoroutine(BFSSearch(dest));
-        else
-        {
-            StopCoroutine(BFSSearch(dest));
-            StartCoroutine(BFSSearch(dest));
-        }
+        BFSSearch(dest);
 
+        //if(BFSSearch(dest) == null)StartCoroutine(BFSSearch(dest));
+        //else
+        //{
+        //    StopCoroutine(BFSSearch(dest));
+        //    StartCoroutine(BFSSearch(dest));
+        //}
+
+    }
+
+    void BFSSearch(Vector3 destVector)
+    {
+        while (true)
+        {
+            if (neighborsQueue.Count > 0)
+            {
+                dequeueNode = neighborsQueue.Dequeue();
+
+                if (dequeueNode == Vector3ToCellNum(destVector))
+                {
+                    print("Found! : " + Vector3ToCellNum(destVector));
+                    DrawPath(dequeueNode);
+                    //StopCoroutine(BFSSearch(destVector));
+                    break;
+                }
+
+                print("DequeueNode : " + dequeueNode);
+                if (!isVisited[dequeueNode] && !walls[dequeueNode])
+                {
+                    for (int b = 0; b < NeighborCell(dequeueNode).Count; b++)
+                    {
+                        //print("Neighbor" + b + " : " + NeighborCell(dequeueNode)[b]);
+                        if (!isChecked[NeighborCell(dequeueNode)[b]] && !walls[NeighborCell(dequeueNode)[b]])
+                        {
+                            neighborsQueue.Enqueue(NeighborCell(dequeueNode)[b]);
+                            print("Enqueued Data : " + NeighborCell(dequeueNode)[b]);
+                            parentNode[NeighborCell(dequeueNode)[b]] = dequeueNode;
+                            print("CellNo : " + NeighborCell(dequeueNode)[b] + ", ParentNo : " + parentNode[NeighborCell(dequeueNode)[b]]);
+                            isChecked[NeighborCell(dequeueNode)[b]] = true;
+                            //LineDraw(dequeueNode, Color.red, 1);
+                        }
+                        //Debug.DrawLine(new Vector3(dequeueNode % CELL_COUNT, 0.2f, dequeueNode / CELL_COUNT + 1), new Vector3(dequeueNode % CELL_COUNT + 1, 0.0f, dequeueNode / CELL_COUNT), Color.red, Mathf.Infinity);
+                    }
+                    visited.Add(dequeueNode);
+                    isVisited[dequeueNode] = true;
+                    //LineDraw(dequeueNode, Color.blue, 0);
+                    //Debug.DrawLine(new Vector3(dequeueNode % CELL_COUNT, 0.1f, dequeueNode / CELL_COUNT), new Vector3(dequeueNode % CELL_COUNT + 1, 0.0f, dequeueNode / CELL_COUNT + 1), Color.blue, Mathf.Infinity);
+                }
+            }
+        }
     }
 
     void WallGenerate(bool[] _walls)
     {
         for (int a = 0; a < CELL_COUNT * CELL_COUNT; a++)
         {
-            if (_walls[a] == true && a != curLocation)
+            if (_walls[a] == true && a != Vector3ToCellNum(player.transform.localPosition))
             {
                 GameObject newcube = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 newcube.transform.position = CellNumToVector3(a) + new Vector3(0, 0.5f, 0);
@@ -224,9 +268,9 @@ public class Grid : MonoBehaviour
 
         while (beforeNode != Vector3ToCellNum(player.transform.position))
         {
+            beforeNode = (int)parentNode[beforeNode];
             LineDraw(beforeNode, Color.red, 1);
             path.Add(beforeNode);
-            beforeNode = (int)parentNode[beforeNode];
         }
 
         //if (childNode == Vector3ToCellNum(player.transform.position)) return childNode;
@@ -243,46 +287,46 @@ public class Grid : MonoBehaviour
         else if(mode==1)Debug.DrawLine(new Vector3(cellNum % CELL_COUNT, 0.1f, cellNum / CELL_COUNT+1), new Vector3(cellNum % CELL_COUNT+1, 0.0f, cellNum / CELL_COUNT), color, Mathf.Infinity);
     }
 
-    IEnumerator BFSSearch(Vector3 destVector)
-    {
-        while (true)
-        {
-            if (neighborsQueue.Count > 0)
-            {
-                dequeueNode = neighborsQueue.Dequeue();
+    //IEnumerator BFSSearch(Vector3 destVector)
+    //{
+    //    while (true)
+    //    {
+    //        if (neighborsQueue.Count > 0)
+    //        {
+    //            dequeueNode = neighborsQueue.Dequeue();
 
-                if (dequeueNode == Vector3ToCellNum(destVector))
-                {
-                    print("Found! : " + Vector3ToCellNum(destVector));
-                    DrawPath(dequeueNode);
-                    StopCoroutine(BFSSearch(destVector));
-                    break;
-                }
+    //            if (dequeueNode == Vector3ToCellNum(destVector))
+    //            {
+    //                print("Found! : " + Vector3ToCellNum(destVector));
+    //                DrawPath(dequeueNode);
+    //                StopCoroutine(BFSSearch(destVector));
+    //                break;
+    //            }
 
-                print("DequeueNode : " + dequeueNode);
-                if (!isVisited[dequeueNode] && !walls[dequeueNode])
-                {
-                    for (int b = 0; b < NeighborCell(dequeueNode).Count; b++)
-                    {
-                        //print("Neighbor" + b + " : " + NeighborCell(dequeueNode)[b]);
-                        if (!isChecked[NeighborCell(dequeueNode)[b]] && !walls[NeighborCell(dequeueNode)[b]])
-                        {
-                            neighborsQueue.Enqueue(NeighborCell(dequeueNode)[b]);
-                            print("Enqueued Data : " + NeighborCell(dequeueNode)[b]);
-                            parentNode[NeighborCell(dequeueNode)[b]] = dequeueNode;
-                            print("CellNo : " + NeighborCell(dequeueNode)[b] + ", ParentNo : " + parentNode[NeighborCell(dequeueNode)[b]]);
-                            isChecked[NeighborCell(dequeueNode)[b]] = true;
-                            //LineDraw(dequeueNode, Color.red, 1);
-                        }
-                        //Debug.DrawLine(new Vector3(dequeueNode % CELL_COUNT, 0.2f, dequeueNode / CELL_COUNT + 1), new Vector3(dequeueNode % CELL_COUNT + 1, 0.0f, dequeueNode / CELL_COUNT), Color.red, Mathf.Infinity);
-                    }
-                    visited.Add(dequeueNode);
-                    isVisited[dequeueNode] = true;
-                    LineDraw(dequeueNode, Color.blue, 0);
-                    //Debug.DrawLine(new Vector3(dequeueNode % CELL_COUNT, 0.1f, dequeueNode / CELL_COUNT), new Vector3(dequeueNode % CELL_COUNT + 1, 0.0f, dequeueNode / CELL_COUNT + 1), Color.blue, Mathf.Infinity);
-                }
-            }
-            yield return null;//new WaitForSeconds(0.01f);
-        }
-    }
+    //            print("DequeueNode : " + dequeueNode);
+    //            if (!isVisited[dequeueNode] && !walls[dequeueNode])
+    //            {
+    //                for (int b = 0; b < NeighborCell(dequeueNode).Count; b++)
+    //                {
+    //                    //print("Neighbor" + b + " : " + NeighborCell(dequeueNode)[b]);
+    //                    if (!isChecked[NeighborCell(dequeueNode)[b]] && !walls[NeighborCell(dequeueNode)[b]])
+    //                    {
+    //                        neighborsQueue.Enqueue(NeighborCell(dequeueNode)[b]);
+    //                        print("Enqueued Data : " + NeighborCell(dequeueNode)[b]);
+    //                        parentNode[NeighborCell(dequeueNode)[b]] = dequeueNode;
+    //                        print("CellNo : " + NeighborCell(dequeueNode)[b] + ", ParentNo : " + parentNode[NeighborCell(dequeueNode)[b]]);
+    //                        isChecked[NeighborCell(dequeueNode)[b]] = true;
+    //                        //LineDraw(dequeueNode, Color.red, 1);
+    //                    }
+    //                    //Debug.DrawLine(new Vector3(dequeueNode % CELL_COUNT, 0.2f, dequeueNode / CELL_COUNT + 1), new Vector3(dequeueNode % CELL_COUNT + 1, 0.0f, dequeueNode / CELL_COUNT), Color.red, Mathf.Infinity);
+    //                }
+    //                visited.Add(dequeueNode);
+    //                isVisited[dequeueNode] = true;
+    //                LineDraw(dequeueNode, Color.blue, 0);
+    //                //Debug.DrawLine(new Vector3(dequeueNode % CELL_COUNT, 0.1f, dequeueNode / CELL_COUNT), new Vector3(dequeueNode % CELL_COUNT + 1, 0.0f, dequeueNode / CELL_COUNT + 1), Color.blue, Mathf.Infinity);
+    //            }
+    //        }
+    //        yield return null;//new WaitForSeconds(0.01f);
+    //    }
+    //}
 }
