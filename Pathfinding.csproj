@@ -84,11 +84,22 @@
     <Compile Include="Assets\Environment\Standard Assets\Effects\StylisticFog\StylisticFog.cs" />
     <Compile Include="Assets\MyProject\FinalProject\AStar.cs" />
     <Compile Include="Assets\MyProject\FinalProject\CameraFollow.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\MyProject\FinalProject\Grid.cs" />
     <Compile Include="Assets\MyProject\FinalProject\Player.cs" />
     <Compile Include="Assets\MyProject\FinalProject\SerializeToJson.cs" />
     <Compile Include="Assets\MyProject\FinalProject\TextBoxManager.cs" />
     <Compile Include="Assets\MyProject\KakaoTest\Q6.cs" />
+=======
+    <Compile Include="Assets\MyProject\FinalProject\Player.cs" />
+<<<<<<< HEAD
+    <Compile Include="Assets\MyProject\FinalProject\SerializeToJson.cs" />
+    <Compile Include="Assets\MyProject\FinalProject\TextBoxManager.cs" />
+=======
+>>>>>>> be1973aca159802c7552c77483d6b81fb226cc26
+    <Compile Include="Assets\MyProject\KakaoTest\Q6.cs" />
+    <Compile Include="Assets\MyProject\Pathfinding\Grid.cs" />
+>>>>>>> 964c1dbbd24dea5251d3b379c70d3995ee6e3a2d
     <Compile Include="Assets\MyProject\Scripts\Coroutine.cs" />
     <Compile Include="Assets\MyProject\Scripts\Cube.cs" />
     <Compile Include="Assets\MyProject\Scripts\Find.cs" />
