@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Pathfinding/Pathfinding.unity
+- path: Assets/MyProject/FinalProject/FinalProject.unity
   isLoaded: 1
   isActive: 1
