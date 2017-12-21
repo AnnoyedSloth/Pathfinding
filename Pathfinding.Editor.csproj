@@ -166,14 +166,7 @@
     <None Include="Assets\Character\Shaders\ReflectiveDiffuseSpecTransp.shader" />
     <None Include="Assets\Environment\Standard Assets\Effects\StylisticFog\Resources\StylisticFog.shader" />
     <None Include="Assets\Environment\Standard Assets\Effects\StylisticFog\Resources\StylisticFogHelper.cginc" />
-<<<<<<< HEAD
     <None Include="Assets\MyProject\FinalProject\Script.txt" />
-=======
-<<<<<<< HEAD
-    <None Include="Assets\MyProject\FinalProject\Script.txt" />
-=======
->>>>>>> be1973aca159802c7552c77483d6b81fb226cc26
->>>>>>> 964c1dbbd24dea5251d3b379c70d3995ee6e3a2d
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
     <None Include="Assets\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
