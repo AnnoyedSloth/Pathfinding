@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
 using System.IO;
+=======
+>>>>>>> be1973aca159802c7552c77483d6b81fb226cc26
 
 public class Player : MonoBehaviour {
 
@@ -13,6 +16,7 @@ public class Player : MonoBehaviour {
     float walkSpeed;
     float runSpeed;
 
+<<<<<<< HEAD
     int hp;
     int bullet;
 
@@ -20,6 +24,10 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         DataFromJson();
+=======
+	// Use this for initialization
+	void Start () {
+>>>>>>> be1973aca159802c7552c77483d6b81fb226cc26
         myCamera = Camera.main.GetComponent<CameraFollow>();
         pState = PlayerState.Idle;
         playerAni = GetComponent<Animator>();
@@ -214,8 +222,11 @@ public class Player : MonoBehaviour {
         //    playerAni.SetBool("isRun", false);
         //    playerAni.SetBool("isIdle", true);
         //}
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> be1973aca159802c7552c77483d6b81fb226cc26
     }
 
     void ChangeAnim(string _from, string _to, PlayerState changeState)
@@ -224,6 +235,7 @@ public class Player : MonoBehaviour {
         playerAni.SetBool(_to, true);
         pState = changeState;
     }
+<<<<<<< HEAD
     
     public int getHP()
     {
@@ -255,4 +267,6 @@ public class Player : MonoBehaviour {
         //savedData = new PlayerJson();
         //savedData = JsonUtility.FromJson<PlayerJson>()
     }
+=======
+>>>>>>> be1973aca159802c7552c77483d6b81fb226cc26
 }

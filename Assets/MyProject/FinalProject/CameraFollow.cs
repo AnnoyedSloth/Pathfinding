@@ -6,6 +6,7 @@ public class CameraFollow : MonoBehaviour {
     public GameObject playerObj;
     Vector3 cameraPos;
     Vector3 ray;
+<<<<<<< HEAD
     [SerializeField]bool isPlayerMode;
 
     private float rotHorizontal;
@@ -13,6 +14,9 @@ public class CameraFollow : MonoBehaviour {
 
     public float upDownRange = 90;
     public float mouseSensitivity = 2.0f;
+=======
+    bool isPlayerMode;
+>>>>>>> be1973aca159802c7552c77483d6b81fb226cc26
 	// Use this for initialization
 	void Start () {
         isPlayerMode = true;
@@ -28,6 +32,7 @@ public class CameraFollow : MonoBehaviour {
         }
         else
         {
+<<<<<<< HEAD
             //ray = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
 
             rotHorizontal = Input.GetAxis("Mouse X") * mouseSensitivity;
@@ -60,6 +65,37 @@ public class CameraFollow : MonoBehaviour {
 	}
 
     
+=======
+            ray = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
+
+            //if (Physics.Raycast(ray, Camera.main.transform.forward * 100))
+            //{
+
+            //}
+
+            if (Input.GetKey(KeyCode.W))
+            {
+                transform.Translate(new Vector3(0, 0, 1) * Time.deltaTime);
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.Translate(new Vector3(-1, 0, 0) * Time.deltaTime);
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime);
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.Translate(new Vector3(1, 0, 0) * Time.deltaTime);
+            }
+
+            //if(Input.mou)
+
+        }
+
+	}
+>>>>>>> be1973aca159802c7552c77483d6b81fb226cc26
 
     public bool CheckPlayerMode()
     {
