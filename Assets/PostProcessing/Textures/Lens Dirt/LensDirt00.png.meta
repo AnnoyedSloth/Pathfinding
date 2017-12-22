@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 69e847bbff1cf5449a4ee0bbd045dbc9
+=======
+guid: dfbba318422fdec45bf584b521133f11
+>>>>>>> 3d06235c1a37be223ff4da4d810ec3bd6fd2f9dd
 timeCreated: 1472572785
 licenseType: Store
 TextureImporter:
@@ -21,7 +25,11 @@ TextureImporter:
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
+<<<<<<< HEAD
   generateCubemap: 0
+=======
+  generateCubemap: 6
+>>>>>>> 3d06235c1a37be223ff4da4d810ec3bd6fd2f9dd
   cubemapConvolution: 0
   seamlessCubemap: 0
   textureFormat: -1

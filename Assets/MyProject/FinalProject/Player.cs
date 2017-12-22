@@ -9,9 +9,12 @@ public class Player : MonoBehaviour {
     [SerializeField] PlayerState pState;
     Animator playerAni;
     CameraFollow myCamera;
+<<<<<<< HEAD
     public Rigidbody bulletObj;
     public Transform bulletOutPos;
     System.Diagnostics.Stopwatch timer;
+=======
+>>>>>>> 3d06235c1a37be223ff4da4d810ec3bd6fd2f9dd
 
     float walkSpeed;
     float runSpeed;
@@ -28,7 +31,10 @@ public class Player : MonoBehaviour {
         playerAni = GetComponent<Animator>();
         walkSpeed = 1.0f;
         runSpeed = 2.0f;
+<<<<<<< HEAD
         timer = new System.Diagnostics.Stopwatch();
+=======
+>>>>>>> 3d06235c1a37be223ff4da4d810ec3bd6fd2f9dd
 	}
 	
 	// Update is called once per frame
@@ -49,7 +55,10 @@ public class Player : MonoBehaviour {
                         }
                         if (Input.GetKeyDown(KeyCode.R))
                         {
+<<<<<<< HEAD
                             //StartCoroutine(CameraZoom(Camera.main.transform.position, Camera.main.transform.position + Vector3.right * 3));
+=======
+>>>>>>> 3d06235c1a37be223ff4da4d810ec3bd6fd2f9dd
                             ChangeAnim("isIdle", "isWeaponRaise", PlayerState.RaiseGun);
                         }
                         if (Input.GetKey(KeyCode.A))
@@ -189,13 +198,17 @@ public class Player : MonoBehaviour {
                         }
                         if (Input.GetKeyDown(KeyCode.R))
                         {
+<<<<<<< HEAD
                             StartCoroutine(CameraZoom(Camera.main.transform.position, Camera.main.transform.position + Vector3.forward));
+=======
+>>>>>>> 3d06235c1a37be223ff4da4d810ec3bd6fd2f9dd
                             ChangeAnim("isRightRun", "isWeaponRaise", PlayerState.RaiseGun);
                         }
                     }
                     break;
                 case PlayerState.RaiseGun:
                     {
+<<<<<<< HEAD
                         Cursor.lockState = CursorLockMode.Locked;
                         Camera.main.transform.localPosition = new Vector3(0.3f, 2.1f, -0.5f);
 
@@ -210,6 +223,10 @@ public class Player : MonoBehaviour {
                         {
                             Cursor.lockState = CursorLockMode.None;
                             Camera.main.transform.localPosition = new Vector3(0.0f, 3f, -3f);
+=======
+                        if (Input.GetKeyDown(KeyCode.R))
+                        {
+>>>>>>> 3d06235c1a37be223ff4da4d810ec3bd6fd2f9dd
                             ChangeAnim("isWeaponRaise", "isIdle", PlayerState.Idle);
                         }
                     }
@@ -276,7 +293,11 @@ public class Player : MonoBehaviour {
             transform.position = new Vector3(savedData.xAxis, savedData.yAxis, savedData.zAxis);
             hp = savedData.hp;
             bullet = savedData.bullet;
+<<<<<<< HEAD
             print("Json Loaded");
+=======
+            print("Data is : " + savedData.xAxis);
+>>>>>>> 3d06235c1a37be223ff4da4d810ec3bd6fd2f9dd
         }
         else
             print("File not found");
@@ -284,6 +305,7 @@ public class Player : MonoBehaviour {
         //savedData = new PlayerJson();
         //savedData = JsonUtility.FromJson<PlayerJson>()
     }
+<<<<<<< HEAD
 
     IEnumerator CameraZoom(Vector3 _from, Vector3 _to)
     {
@@ -302,4 +324,6 @@ public class Player : MonoBehaviour {
             }
         }
     }
+=======
+>>>>>>> 3d06235c1a37be223ff4da4d810ec3bd6fd2f9dd
 }

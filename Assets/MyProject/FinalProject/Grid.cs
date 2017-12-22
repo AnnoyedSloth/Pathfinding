@@ -50,6 +50,10 @@ public class Grid : MonoBehaviour
         {
 
             //walls[a] = false;
+<<<<<<< HEAD:Assets/MyProject/FinalProject/Grid.cs
+=======
+            isBlocked[a] = false;
+>>>>>>> 3d06235c1a37be223ff4da4d810ec3bd6fd2f9dd:Assets/MyProject/FinalProject/Grid.cs
             isVisited[a] = false;
             isChecked[a] = false;
             if (Terrain.activeTerrain.SampleHeight(CellNumToVector3(a)) > 0.1f)
@@ -228,6 +232,7 @@ public class Grid : MonoBehaviour
         if (cellNum % CELL_COUNT == CELL_COUNT - 1) neighbors.RemoveAll((num) => { return num == 1 || num == 1 - CELL_COUNT || num == 1 + CELL_COUNT; });
         if (cellNum / CELL_COUNT == 0) neighbors.RemoveAll((num) => { return num == -CELL_COUNT || num == -1 - CELL_COUNT || num == -CELL_COUNT + 1; });
         if (cellNum / CELL_COUNT == CELL_COUNT - 1) neighbors.RemoveAll((num) => { return num == CELL_COUNT || num == CELL_COUNT - 1 || num == CELL_COUNT + 1; });
+<<<<<<< HEAD:Assets/MyProject/FinalProject/Grid.cs
 
 
         for (int a = 0; a < neighbors.Count;)
@@ -238,6 +243,14 @@ public class Grid : MonoBehaviour
             else a++;
             //str[a] = str[a] + neighbors[b].ToString() + ", ";
 
+=======
+
+        for (int a = 0; a < neighbors.Count; a++)
+        {
+            neighbors[a] += cellNum;
+                //str[a] = str[a] + neighbors[b].ToString() + ", ";
+            
+>>>>>>> 3d06235c1a37be223ff4da4d810ec3bd6fd2f9dd:Assets/MyProject/FinalProject/Grid.cs
         }
         return neighbors;
     }
@@ -265,7 +278,7 @@ public class Grid : MonoBehaviour
         {
             beforeNode = parentNode[beforeNode];
             LineDraw(beforeNode, Color.red, 1);
-            path.Add(beforeNode);
+            //path.Add(beforeNode);
         }
 
         print("After " + beforeNode);

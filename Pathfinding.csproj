@@ -78,21 +78,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Assets\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\GunAim.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\GunShoot.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
+=======
+>>>>>>> 3d06235c1a37be223ff4da4d810ec3bd6fd2f9dd
     <Compile Include="Assets\Environment\Standard Assets\Effects\Common\ImageEffectHelper.cs" />
     <Compile Include="Assets\Environment\Standard Assets\Effects\Common\MinAttribute.cs" />
     <Compile Include="Assets\Environment\Standard Assets\Effects\Common\RenderTextureUtility.cs" />
     <Compile Include="Assets\Environment\Standard Assets\Effects\StylisticFog\StylisticFog.cs" />
     <Compile Include="Assets\MyProject\FinalProject\AStar.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\MyProject\FinalProject\BulletScript.cs" />
     <Compile Include="Assets\MyProject\FinalProject\CameraFollow.cs" />
     <Compile Include="Assets\MyProject\FinalProject\Enemy.cs" />
     <Compile Include="Assets\MyProject\FinalProject\Grid.cs" />
     <Compile Include="Assets\MyProject\FinalProject\Monster.cs" />
+=======
+    <Compile Include="Assets\MyProject\FinalProject\CameraFollow.cs" />
+    <Compile Include="Assets\MyProject\FinalProject\Grid.cs" />
+>>>>>>> 3d06235c1a37be223ff4da4d810ec3bd6fd2f9dd
     <Compile Include="Assets\MyProject\FinalProject\Player.cs" />
     <Compile Include="Assets\MyProject\FinalProject\SerializeToJson.cs" />
     <Compile Include="Assets\MyProject\FinalProject\TextBoxManager.cs" />
@@ -149,7 +157,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Character\Shaders\ReflectiveDiffuseSpecTransp.shader" />
+<<<<<<< HEAD
     <None Include="Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
+=======
+>>>>>>> 3d06235c1a37be223ff4da4d810ec3bd6fd2f9dd
     <None Include="Assets\Environment\Standard Assets\Effects\StylisticFog\Resources\StylisticFog.shader" />
     <None Include="Assets\Environment\Standard Assets\Effects\StylisticFog\Resources\StylisticFogHelper.cginc" />
     <None Include="Assets\MyProject\FinalProject\Script.txt" />
